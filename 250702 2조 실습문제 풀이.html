@@ -1,0 +1,113 @@
+1. 출제
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>아래 리스트에서 script 코드를 수정하여
+        호랑이를 고양이와 원숭이 사이에 추가하여 
+        웹페이지에 출력 해주세요.</pre>
+    <ul id="animal">
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>원숭이</li>
+    </ul>
+
+    <script>
+
+        const $animal = document.getElementById('animal');
+        console.log($animal);
+
+        const $tiger = document.createElement('li')
+        $tiger.textContent = '호랑이'
+
+        $animal.insertBefore($tiger, $animal.lastElementChild);
+
+
+    </script>
+</body>
+</html>
+
+
+2. 이경철님 문제
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="drink">
+        <li>커피</li>
+    </ul>
+
+    <script>
+        const $drink = document.getElementById('drink');
+
+        const $aaa = document.createElement('li');
+        $aaa.textContent = '콜라';
+        $drink.insertBefore($aaa, $drink.firstElementChild);
+
+        const $bbb = document.createElement('li');
+        $bbb.textContent = '사이다';
+        $drink.insertBefore($bbb, $drink.lastElementChild);
+        $drink.insertBefore($bbb, $drink.lastElementChild);
+
+        $bbb.textContent = '제로콜라';
+        $drink.removeChild($bbb);
+
+        const $ccc = $drink.lastElementChild;
+
+        ['밀키스', '아이스크림', '허브티'].forEach(text => {
+            const $li = document.createElement('li');
+            $li.textContent = text;
+
+            $drink.insertBefore($li, $ccc);
+        });
+    </script>
+</body>
+</html>
+
+
+3. 이나연님 문제
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="menu">
+        <li>토마토</li>
+        <li>까르보나라</li>
+        <li>필라프</li>
+    </ol>
+
+    <script>
+        const $menu = document.getElementById('menu');
+
+        // $menu.removeChild($menu.firstElementChild);  // 출제자 조건 : remove 사용 불가
+
+        const $aaa = document.createElement('li');
+        $aaa.textContent = '로제';
+        // $menu.insertBefore($aaa, $menu.firstChild);  // 출제자 조건 : remove 사용 불가로 해당 코드 사용 불가
+
+        const $bbb = document.createElement('li');
+        $bbb.textContent = '리조또';
+        $menu.insertBefore($bbb, $menu.lastChild);  // lastElementChild 가 아니기 때문에 줄공백 앞 위치하여 li 상 마지막에 위치하게 됨.
+
+        const $ddd = $menu.firstElementChild;    // 토마토 변수 선언
+        $menu.replaceChild($aaa, $ddd);          // 토마토를 로제로 변경
+
+
+    </script>
+</body>
+</html>

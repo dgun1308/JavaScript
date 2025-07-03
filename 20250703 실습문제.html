@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>사용자 입력 양식 이벤트 연습하기</h1>
+
+    <form class="formstyle" name="testform">
+
+        <label for="username">이름</label>
+        <br>
+        <input type="text" name="username" id="username" placeholder="이름을 입력하세요" size="30" required>    <!-- 팀 리뷰 이후 required(필수입력)지정 -->
+
+        <br><br>
+
+        <label for="email">이메일</label>
+        <br>
+        <input type="email" name="email" id="email" placeholder="example@domain.com" size="30" required>    <!-- 팀 리뷰 이후 required(필수입력)지정 -->
+
+        <br><br>
+
+        <label>성별</label>
+        <br>
+        <input type="radio" name="gender" id="male" value="m"> <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="f"> <label for="female">여자</label>
+
+        <br><br>
+
+        <label>참여 일자 선택</label>
+        <br>
+        <input type="date" name="date">
+
+        <br><br>
+
+        <label>요청 사항</label>
+        <br>
+        <textarea name="requset" id="request" rows="10" cols="30"
+        style="resize: none;" placeholder="요청 사항을 입력하세요" maxlength="500"></textarea>
+
+        <br>
+
+        <span>0</span>/500자
+
+        <br><br>
+
+        <div class="agreearea">
+        <input type="checkbox" name="agree" id="agreebox"> <label> 개인정보 수집에 동의합니다.</label>
+        </div>
+
+        <br><br>
+
+        <button type="submit">신청하기</button>
+
+    </form>
+
+    <script>
+        const $testform = document.forms.testform;  // form 요소 변수 선언
+        console.log(document.forms.testform);       // 출력 테스트
+
+        const $username = $testform.username;       // 이름 요소 변수 선언
+        console.log($username.placeholder);         // 출력 테스트
+
+        const $email = $testform.email;             // 메일 요소 변수 선언
+        console.log($email.placeholder);            // 출력 테스트
+
+        const $gender = $testform.gender;           // 성별 요소 변수 선언
+        console.log($gender[0].checked);            // 출력 테스트
+        console.log($gender[1].checked);            // 출력 테스트
+
+        const $date = $testform.date;               // 날짜 요소 변수 선언
+        console.log($date.type);                    // 출력 테스트
+
+        const $request = $testform.request;         // 요청 요소 변수 선언
+        console.log($request.placeholder);          // 출력 테스트
+
+        const $agree = $testform.agree;             // 동의 요소 변수 선언
+        console.log($agree.type);                   // 출력 테스트
+
+        const $agreebox = document.querySelector('#agreebox');  // 체크박스 스타일 작업중
+        const $agreearea = document.querySelector('.agreearea');    // 체크박스 스타일 작업중
+        $agreebox.onclick = (e) => {                            // 체크박스 스타일 작업중
+            e.target.classList.toggle('lightgray');             // 체크박스 스타일 작업중
+        }
+
+        $testform.onsubmit = function() {
+            let username = this.querySelector('input[name=username]').value;
+            let email = this.querySelector('input[name=email]').value;
+            let gender = this.querySelector('input[name=gender]:checked');
+            let date = this.querySelector('input[name=date]').value.trim();
+            let agree = this.querySelector('input[name=agree]:checked');
+            // console.log(username);
+            // console.log(email);
+
+            // 팀 리뷰 이후 required(필수입력) 지정으로 해당 코드 미사용
+            // if(!username) {
+            //     alert('이름?');
+            //     return false;
+            // }
+
+            // 팀 리뷰 이후 required(필수입력) 지정으로 해당 코드 미사용
+            // if(!email) {
+            //     alert('email?');
+            //     return false;
+            // }
+
+            if(!gender) {
+                alert('gender?');
+                return false;
+            }
+
+            if(!date) {
+                alert('date?');
+                return false;
+            }
+
+            if(!agree) {
+                alert('agree?');
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+</html>

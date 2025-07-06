@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>input 태그에 숫자를 입력하고 버튼을 클릭하면, +10이 된 값을 alert로 출력해 주세요.</h3>
+    <h4>(input 값 : 5 -> alert로 출력된 값 : 15)</h4>
+
+    <form name="form1">
+
+        <input type="number" name="number" id="number">
+        <button name="btn1">클릭</button>
+
+    </form>
+    <script>
+
+        const $form1 = document.forms.form1;
+        const $number = $form1.number;
+        const $btn1 = $form1.btn1;
+
+        $btn1.onclick = function() {
+            const inputValue = parseInt($number.value, 10);
+
+            const result = inputValue + 10;
+            return alert(result);
+        }
+
+    </script>
+    
+    <br><br>
+
+    <h3>라디오버튼을 클릭하면 value값을 이용해 해당 사이트로 이동해 주세요.</h3>
+    <h4>(location.href 이용)</h4>
+
+    <input type="radio" id="naver" value="naver"> <label>네이버</label>
+    <br>
+    <input type="radio" id="google"> <label>구글</label>
+    <br>
+    <input type="radio" id="school"> <label>w3schools</label>
+
+    <script>    // input 태그에 value값 이용 필요
+        document.querySelector('#naver').onclick = () => location.href = ("https://www.naver.com");
+        document.querySelector('#google').onclick = () => location.href = ("https://www.google.com");
+        document.querySelector('#school').onclick = () => location.href = ("https://www.w3schools.com");
+    </script>
+
+    <br><br>
+
+    <h3>버튼을 클릭하면, 첫 번째 체크박스의 항목을 체크해 주세요</h3>
+
+    <form name="form2">
+    <input type="checkbox" name="java"> <label>Java</label>
+    <br>
+    <input type="checkbox" name="DataBase"> <label>DataBase</label>
+    <br>
+    <input type="checkbox" name="Web"> <label>Web</label>
+    <br>
+    <input type="button" name="btn2" value="클릭">
+    </form>
+
+    <script>
+        const $form2 = document.forms.form2;
+        const $btn2 = $form2.btn2;
+        const $java = $form2.java;
+        
+        $btn2.onclick = function() {
+            let java = this.querySelector('input[name=java]:checked');
+            return java;
+        }
+    </script>
+
+</body>
+</html>

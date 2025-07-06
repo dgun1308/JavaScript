@@ -111,3 +111,105 @@
     </script>
 </body>
 </html>
+
+
+4. 이승민님 문제(수정전)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS 선언블록 {} 끝에 세미콜론은 입력하지 않는다.
+           입력 시 이후 스타일이 무시될 수 있음. */
+        .aaa1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .bbb2 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .ccc3 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .square2 {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="zzz">
+        <li></li>
+        <li></li>
+    </ul>
+    
+    <div class="aaa1"></div>
+    <div class="bbb2"></div>
+    <div class="ccc3"></div>
+
+    <script>
+        const $zzz = document.getElementById('zzz');
+        // $zzz.removeChild($zzz.firstElementChild);    // li 를 삭제하는 것이 아니라 area 지정하여, div와 위치 변경
+        // $zzz.removeChild($zzz.lastElementChild);
+        const $area1 = $zzz.firstElementChild;
+        const $area2 = $zzz.lastElementChild;
+
+        const $aaa1 = document.querySelector('.aaa1');
+        const $bbb2 = document.querySelector('.bbb2');
+        const $ccc3 = document.querySelector('.ccc3');
+
+        $bbb2.classList.add('circle');
+        $ccc3.classList.add('square2');
+
+        $zzz.replaceChild($aaa1,$area1);
+        $zzz.insertBefore($bbb2,$area2);
+        $zzz.replaceChild($ccc3,$area2);
+
+    </script>
+
+</body>
+</html>
+
+
+5. 조민식님 문제
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>사용자명</label>
+    <input type="password" value="12345678" id="userid" name="userid">
+    <button type="submit" id="btn">비교하기</button>
+
+    <script>
+        const $userid = document.getElementById('userid');
+        const $uservalue = $userid.defaultValue;
+        console.log($uservalue);
+
+        document.getElementById('btn').addEventListener("click", function () {
+            const userinput = document.getElementById('userid').value;
+            console.log("사용자명:", userinput);
+            let result = (userinput === $uservalue) ? alert("일치") : alert("불일치");
+            console.log(result);
+        })
+    </script>
+</body>
+</html>
